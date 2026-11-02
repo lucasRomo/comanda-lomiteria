@@ -1,14 +1,14 @@
-/* Panel del negocio: marco teñido en L y una hoja blanca para trabajar. */
+/* Panel del local: marco gris y una hoja blanca para trabajar. */
 .admin {
-  --frame: #f2f2ef;
+  --frame: #f4f4f5;
   --sheet: #ffffff;
-  --edge: #e8e5df;
-  --rule: #efede8;
-  --control: #e6e3dc;
-  --text: #1a1917;
-  --muted: #67635b;
-  --soft: #f6f5f2;
-  --chart-1: #c0182d;
+  --edge: #e4e4e7;
+  --rule: #ececef;
+  --control: #dedee3;
+  --text: #18181b;
+  --muted: #55555d;
+  --soft: #f7f7f8;
+  --chart-1: #c62a1f;
   --ok: #1f7a4d;
   --bad: #b3211d;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -19,7 +19,7 @@
   height: 100vh;
   background: var(--frame);
   color: var(--text);
-  font-family: 'Roundo', system-ui, sans-serif;
+  font-family: 'Rubik', system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.45;
 }
@@ -118,11 +118,11 @@
 .menu a:hover,
 .menu-secundario:hover {
   color: var(--text);
-  background: #e9e6e0;
+  background: #e9e9ec;
 }
 .menu a.active {
   color: var(--text);
-  background: #e4e1da;
+  background: #e4e4e7;
 }
 .lateral-pie {
   margin-top: auto;
@@ -267,7 +267,7 @@
 }
 .boton:hover {
   background: var(--soft);
-  border-color: #d6d2c9;
+  border-color: #d4d4d8;
 }
 .boton:active {
   transform: scale(0.97);
@@ -283,8 +283,8 @@
   color: #fff;
 }
 .boton-primario:hover {
-  background: #33312d;
-  border-color: #33312d;
+  background: #3f3f46;
+  border-color: #3f3f46;
 }
 .boton-peligro {
   color: var(--bad);
@@ -475,7 +475,7 @@
   color: var(--text);
 }
 .nota {
-  background: #fdf6e3;
+  background: #fff6dc;
   padding: 10px 12px;
   border-radius: 8px;
   margin: 12px 0 0;
@@ -573,7 +573,7 @@
   top: 0;
   bottom: 0;
   pointer-events: none;
-  background: repeating-linear-gradient(135deg, transparent 0 5px, #ebe8e2 5px 6px);
+  background: repeating-linear-gradient(135deg, transparent 0 5px, #e9e9ec 5px 6px);
 }
 .turno-barra {
   position: absolute;
@@ -612,11 +612,11 @@
   font-weight: 600;
 }
 .turno-atendido {
-  background: #efede9;
+  background: #f0f0f2;
   color: var(--muted);
 }
 .turno-ausente {
-  background: repeating-linear-gradient(135deg, #f6f5f2 0 5px, #e4e1da 5px 6px);
+  background: repeating-linear-gradient(135deg, #f7f7f8 0 5px, #e4e4e7 5px 6px);
   color: var(--muted);
   text-decoration: line-through;
 }
@@ -656,13 +656,13 @@
   background: hsl(210 55% 90%);
 }
 .muestra-atendido {
-  background: #efede9;
+  background: #f0f0f2;
 }
 .muestra-ausente {
-  background: repeating-linear-gradient(135deg, #f6f5f2 0 3px, #d6d2c9 3px 4px);
+  background: repeating-linear-gradient(135deg, #f7f7f8 0 3px, #d4d4d8 3px 4px);
 }
 .muestra-cerrado {
-  background: repeating-linear-gradient(135deg, transparent 0 3px, #d6d2c9 3px 4px);
+  background: repeating-linear-gradient(135deg, transparent 0 3px, #d4d4d8 3px 4px);
 }
 .muestra-ahora {
   width: 2px;
@@ -961,7 +961,7 @@
 }
 .barra-relleno {
   width: 100%;
-  background: #d9d5ce;
+  background: #d4d4d8;
   border-radius: 3px 3px 0 0;
   transition: background-color 120ms var(--ease);
 }
@@ -1017,7 +1017,7 @@
   border-radius: 3px;
 }
 .ranking-gris span {
-  background: #b9b4ab;
+  background: #a1a1aa;
 }
 .ranking-valor {
   font-variant-numeric: tabular-nums;
@@ -1027,11 +1027,11 @@
 
 /* ——— Formularios y diálogos ——— */
 .dialogo {
-  border: 1px solid var(--edge, #e8e5df);
+  border: 1px solid var(--edge, #e4e4e7);
   border-radius: 14px;
   padding: 0;
-  color: #1a1917;
-  font-family: 'Roundo', system-ui, sans-serif;
+  color: #18181b;
+  font-family: 'Rubik', system-ui, sans-serif;
   font-size: 14px;
   box-shadow: 0 24px 64px rgb(0 0 0 / 0.18);
   max-height: calc(100vh - 32px);
@@ -1071,7 +1071,7 @@
   align-items: flex-end;
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid #efede8;
+  border-top: 1px solid #ececef;
 }
 .cobro .campo {
   flex: 1;
@@ -1102,10 +1102,10 @@
   font-weight: 400;
   height: 36px;
   padding: 0 10px;
-  border: 1px solid #dcd8d0;
+  border: 1px solid #d4d4d8;
   border-radius: 8px;
   background: #fff;
-  color: #1a1917;
+  color: #18181b;
 }
 .campo textarea {
   height: auto;
@@ -1126,7 +1126,7 @@
   width: 34px;
   height: 20px;
   border-radius: 999px;
-  background: #d6d2c9;
+  background: #d4d4d8;
   position: relative;
   cursor: pointer;
   transition: background-color 160ms var(--ease, ease);
@@ -1358,7 +1358,7 @@
   color: var(--muted);
 }
 .comanda-nota {
-  background: #fdf6e3;
+  background: #fff6dc;
   border-radius: 6px;
   padding: 4px 8px;
   font-size: 13px;
@@ -1429,4 +1429,62 @@
   width: 12px;
   vertical-align: -1px;
   margin-right: 4px;
+}
+
+/* Celular: una columna de comandas por vez */
+.producto-marca {
+  border-radius: 8px;
+  background: var(--chart-1);
+  color: #fff;
+}
+.columnas-pestanas {
+  display: none;
+}
+@media (max-width: 860px) {
+  .columnas-pestanas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 3px;
+    border-radius: 12px;
+    background: var(--soft);
+  }
+  .columnas-pestanas button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 0;
+    border: 0;
+    border-radius: 9px;
+    background: none;
+    font: inherit;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .columnas-pestanas button span {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text);
+  }
+  .columnas-pestanas button.activa {
+    background: var(--sheet);
+    color: var(--text);
+  }
+  .tablero-comandas {
+    display: block !important;
+    overflow: visible !important;
+  }
+  .columna-comandas:not(.a-la-vista) {
+    display: none !important;
+  }
+  .columna-comandas .columna-cabeza {
+    display: none;
+  }
+  .tabla-entregados th:nth-child(4),
+  .tabla-entregados td:nth-child(4),
+  .tabla-entregados th:nth-child(5),
+  .tabla-entregados td:nth-child(5) {
+    display: none;
+  }
 }

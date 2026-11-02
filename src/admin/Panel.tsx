@@ -25,7 +25,7 @@ export function Layout() {
     <div className="admin">
       <aside className={`lateral ${abierto ? 'lateral-abierta' : ''}`}>
         <div className="producto">
-          <span className="producto-marca-pan" aria-hidden="true" />
+          <span className="producto-marca" aria-hidden="true">Ñ</span>
           <span>
             <strong>{negocio.nombre}</strong>
             <small>{negocio.barrio}, {negocio.ciudad}</small>
@@ -113,13 +113,14 @@ export function Comandas() {
   const activos = deHoy.filter((p) => !['entregado', 'cancelado'].includes(p.estado))
   const demora = activos.length ? Math.round(activos.reduce((s, p) => s + ((ahora - p.hora + 1440) % 1440), 0) / activos.length) : 0
   const web = deHoy.filter((p) => p.origen === 'web').length
+  const [vista, setVista] = useState<EstadoPedido>('nuevo')
 
   return (
     <div className="pantalla">
       <div className="titulo-fila">
         <div>
           <h1>Comandas</h1>
-          <p>{activos.length} pedidos en marcha · tocá el botón de cada comanda para pasarla a la columna siguiente</p>
+          <p>{activos.length} pedidos en marcha. Tocá el botón de cada comanda para pasarla a la columna siguiente.</p>
         </div>
       </div>
       <div className="kpis">
@@ -128,11 +129,18 @@ export function Comandas() {
         <div className="kpi"><span>Espera promedio</span><strong className={demora > 35 ? 'mal' : ''}>{demora} min</strong><small>de los pedidos en marcha</small></div>
         <div className="kpi"><span>Pedidos por la carta online</span><strong>{web} de {deHoy.length}</strong><small>sin comisión de apps</small></div>
       </div>
+      <div className="columnas-pestanas" role="tablist" aria-label="Columna">
+        {columnas.map((c) => (
+          <button key={c.estado} role="tab" aria-selected={vista === c.estado} className={vista === c.estado ? 'activa' : ''} onClick={() => setVista(c.estado)}>
+            {estados[c.estado]} <span>{deHoy.filter((p) => p.estado === c.estado).length}</span>
+          </button>
+        ))}
+      </div>
       <div className="tablero-comandas">
         {columnas.map((c) => {
           const lista = deHoy.filter((p) => p.estado === c.estado).sort((a, b) => a.hora - b.hora)
           return (
-            <section key={c.estado} className="columna-comandas">
+            <section key={c.estado} className={`columna-comandas ${vista === c.estado ? 'a-la-vista' : ''}`}>
               <div className="columna-cabeza"><h2>{estados[c.estado]}</h2><span>{lista.length}</span></div>
               {lista.length === 0 && <p className="vacio">Nada por acá.</p>}
               {lista.map((p) => <Tarjeta key={p.id} p={p} accion={c.accion} siguiente={c.siguiente} />)}
@@ -142,7 +150,7 @@ export function Comandas() {
       </div>
       <section className="tarjeta">
         <div className="tarjeta-cabeza"><h2>Entregados hoy</h2></div>
-        <table className="tabla">
+        <table className="tabla tabla-entregados">
           <thead><tr><th className="num">N°</th><th>Cliente</th><th>Entrega</th><th>Pago</th><th className="num">Hora</th><th className="num">Total</th></tr></thead>
           <tbody>
             {entregados.sort((a, b) => b.hora - a.hora).slice(0, 8).map((p) => (
