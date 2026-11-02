@@ -1488,3 +1488,38 @@
     display: none;
   }
 }
+
+/* ——— Marco oscuro: el rojo oscuro del carrito, con la mostaza ——— */
+.admin {
+  --frame: #1a1210;
+}
+.lateral,
+.superior {
+  color: #fff;
+}
+.producto small,
+.usuario small,
+.hecho-con,
+.superior-texto {
+  color: #9b8f89;
+}
+.menu a,
+.menu-secundario {
+  color: #d9cdc7;
+}
+.menu a:hover,
+.menu-secundario:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 0.08);
+}
+.menu a.active {
+  color: #ffffff;
+  background: #d32a1d;
+  font-weight: 600;
+}
+.superior .btn-icono {
+  color: #fff;
+}
+.superior .boton {
+  color: var(--text);
+}
