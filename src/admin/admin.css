@@ -1523,3 +1523,120 @@
 .superior .boton {
   color: var(--text);
 }
+
+/* ——— Celular: que se sienta una app y no una web achicada ——— */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (pointer: coarse) {
+  /* Con menos de 16px el iPhone hace zoom al tocar el campo */
+  .admin input,
+  .admin select,
+  .admin textarea,
+  .dialogo input,
+  .dialogo select,
+  .dialogo textarea {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .dialogo {
+    width: 100vw !important;
+    max-width: 100vw;
+    margin: auto 0 0;
+    border-radius: 20px 20px 0 0;
+    max-height: 92dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .dialogo[open] {
+    animation: hoja-sube 260ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+}
+@keyframes hoja-sube {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialogo[open] {
+    animation: none;
+  }
+}
+
+/* ——— Celular: barra de arriba corta, botones del tamaño de un dedo y tablas como tarjetas ——— */
+@media (max-width: 600px) {
+  .superior-texto {
+    display: none;
+  }
+  .superior .boton {
+    margin-left: auto;
+  }
+}
+@media (pointer: coarse) {
+  .boton,
+  .boton-chico,
+  .select-chico,
+  .segmentos button,
+  .pestanas-admin button {
+    min-height: 40px;
+  }
+}
+@media (max-width: 700px) {
+  .tabla-tarjetas,
+  .tabla-tarjetas tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tabla-tarjetas thead {
+    display: none;
+  }
+  .tabla-tarjetas tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    padding: 14px;
+    border-radius: 14px;
+    background: var(--sheet, #fff);
+    border: 1px solid var(--edge, #e4e6eb);
+  }
+  .tabla-tarjetas td {
+    display: block;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: left;
+    white-space: normal;
+  }
+  .tabla-tarjetas td small {
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Carta: foto y nombre arriba; precio y disponible abajo */
+  .carta-admin li {
+    grid-template-columns: 56px 1fr auto;
+    gap: 8px 12px;
+    padding: 14px 0;
+  }
+  .carta-admin img,
+  .carta-admin .sin-foto {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    grid-row: 1 / 3;
+  }
+  .carta-admin li > span {
+    grid-column: 2 / 4;
+  }
+  .carta-admin .precio-input {
+    grid-column: 2;
+    width: 120px;
+    height: 40px;
+  }
+  .carta-admin .interruptor {
+    grid-column: 3;
+  }
+}
